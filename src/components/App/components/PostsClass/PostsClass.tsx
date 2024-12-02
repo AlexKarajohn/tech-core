@@ -3,7 +3,6 @@ import { postsApi } from "../../../../redux/api/slices/posts/postsApi";
 import { withRTKQuery } from "@src/redux/utils/withRTKQuery";
 
 interface StateProps {
-  id: string;
   posts?: {
     data?: {
       id: string;

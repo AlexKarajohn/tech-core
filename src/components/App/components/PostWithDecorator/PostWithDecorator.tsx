@@ -22,6 +22,7 @@ interface PostState {
 @withRTKQuery<StateProps, PostState, "post">({
   endpoint: postsApi.endpoints.getPostById,
   getQueryParams: (props) => props.id,
+  mountOnFetch: false,
   propertyName: "post",
 })
 class PostComponent extends Component<StateProps, PostState> {
@@ -35,7 +36,7 @@ class PostComponent extends Component<StateProps, PostState> {
 
   render(): ReactNode {
     if (!this.state.post?.data) {
-      return <div>Loading...</div>;
+      return <div onClick={() => this.onRequestFetch?.("1")}>FETCH</div>;
     }
     return (
       <div

@@ -4,6 +4,7 @@ import { Provider, useSelector } from "react-redux";
 import { RootState, store } from "@src/redux/redux";
 import { Post } from "./components/Post/Post";
 import { PostWithDecorator } from "./components/PostWithDecorator/PostWithDecorator";
+import { ExtraPosts } from "./components/ExtraPosts/ExtraPosts";
 
 export const App: FC = () => {
   const [showPosts, setShowPosts] = useState(false);
@@ -14,15 +15,9 @@ export const App: FC = () => {
           Show Posts
         </button>
 
-        {showPosts ? (
-          <PostsClass />
-        ) : (
-          <>
-            <Post id={"1"} />
-          </>
-        )}
+        {showPosts ? <ExtraPosts /> : null}
       </div>
-      <PostWithDecorator id={"1"} />
+
       {/* <Cache /> */}
     </Provider>
   );
